@@ -5,8 +5,8 @@ import pickle
 
 
 app = Flask(__name__)
-model = pickle.load(open('/content/drive/My Drive/linearregressionm.pkl','rb')) 
-run_with_ngrok(app)
+model = pickle.load(open('linearregressionm.pkl','rb')) 
+# run_with_ngrok(app)
 
 @app.route('/')
 def home():
@@ -36,4 +36,5 @@ def predict():
     return render_template('index.html', prediction_text='Regression Model  has predicted Price for given requirements is : {}'.format(prediction))
 
 
-app.run()
+if __name__ == "__main__":
+    app.run(debug=True)
